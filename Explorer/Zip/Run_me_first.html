@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+   <!--
+   the scripts are needed because this is displayed before the gw lib is loaded, they are like Nicholas` populate()
+   -->
+<script>
+    function error(text){
+      document.getElementById("error").innerHTML = text;};
+    function Status(text){
+      document.getElementById("load").innerHTML = 'Unzipping: '+text;};
+</script>
+
+<style>
+  th {
+  background-color:#ccc;
+  color: blue;
+   }
+  hr {
+    border: none;
+    border-top: 3px solid blue;
+    width: 90%; 
+  }
+  .noerror {
+    font-size: 18px;
+    color: green;
+  }
+  .error {
+    font-size: 18px;
+    color: red;
+  }
+</style>
+<body style='font-size: 12px;'>
+<h1 style='color: blue; text-align: center;'>Blue Explorer</h1>
+
+<hr>
+
+<h2 style='text-align: center; color: blue;'>Download Status</h2>
+
+<h2 id='load'> </h2>
+<p id='error' class='noerroir'>No Errors</p>
+
+<hr>
+
+<p style='text-align: center; color: blue;'>Blue_Setup.bas and Blue.zip</p>
+<p>Blue.zip should be in the folder Downloads/</p>
+<p>Blue_Setup.bas Should be in Source/, Run this file first, it will unzip blue and put all files in proper folders.</p>
+<p>Then simply run the file: Blue.bas</p>
+
+<hr>
+
+<p style='text-align: center; color: blue;'>Notes</p>
+
+<p>Blue Explorer is 100% independent, it will not use nor modify any of your existing software.</p>
+<p>Blue will only Run on Olibasic III and the enclosed Version of the GW lib file. (GW_Blue.bas)</p>
+
+<p>All Icons are copied to Assets: storage/Blue/Explorer/Icons/</p>
+<p>Sdcard will always refer to the external removable SdCard</p>
+
+<hr>
+
+<p style='text-align: center; color: blue;' >Files themes swatchs etc.</p>
+
+
+
+
+<table style='width:100%;'>
+<tr><th>Filename</th><th>Path/Location</th><th>Use</th></tr>
+<tr><th colspan='3'>BASIC Files</th></tr><tr><td>Blue.bas</td> <td>storage/rfo-basic/source/</td><td>Main BASIC file</td></tr><tr><td>Blue_fn.bas</td> <td>storage/rfo-basic/source/</td><td>Blue API list</td></tr> <tr><td>GW_Blue.bas</td><td>storage/rfo-basic/source/</td><td>Modified GW lib</td></tr>
+<tr><td>left.bas</td><td>storage/rfo-basic/source/</td><td>Left half of page 4</td></tr>
+<tr><td>right.bas</td><td>storage/rfo-basic/source/</td><td>Right half of page 4</td></tr>
+<tr><td>future_fixes.bas</td><td>storage/rfo-basic/source/</td><td>Bottom of page 4</td></tr>
+<tr><td>Blue_setup.bas</td><td>storage/rfo-basic/Source/ </td><td>UnZip blue Explorer</td></tr>
+<tr><td>Blue_zip.bas</td><td>storage/rfo-basic/Source/</td><td>ZIP all files to run Blue Explorer</td></tr>
+<tr><td>About.bas</td><td>storage/rfo-basic/Source/</td><td>About Small css popup</td></tr>
+<tr><td>Icon-viewer.bas</td><td>storage/rfo-basic/Source/ </td><td>Just a small program to view the icons</td></tr>
+
+
+
+
+<tr><th colspan='3'>Data Files <span style='float:right;'>see settings page</span> </th></tr>
+<tr><td>current_custom.dat</td><td>storage/Blue/Explorer/data/ </td><td>current data file to use</td></tr>
+<tr><td>current_swatch.dat</td><td>storage/Blue/Explorer/data/ </td><td>current swatch to use</td></tr>
+<tr><td>current_ver.dat</td><td>storage/Blue/Explorer/data/ </td><td>version of Blue Explorer (for future use)</td></tr>
+<tr><td>Default.txt</td><td>storage/Blue/Explorer/data/ </td><td>Custom links and data</td></tr>
+<tr><td>blue.txt</td><td>storage/Blue/Explorer/data/ </td><td>Different Custom links</td></tr>
+
+<!--
+  js files
+-->
+
+<tr><th colspan='3'>Script</th></tr>
+<tr><td>Blue.js</td><td>storage/Blue/Explorer/Jquery/</td><td>Blue Script file</td></tr><tr>
+
+<!--
+  css files
+-->
+
+<tr><th colspan='3'>Themes/CSS</th></tr>
+<tr><td>Blue.css</td><td>storage/Blue/Explorer/themes/</td><td>Blue Main CSS file</td></tr><tr>
+<td>Blue-theme.css</td><td>storage/Blue/Explorer/themes/</td><td>Blue theme, Used Jquery Theme-roller. swatches a-g</td></tr>
+
+<!--
+ theme and swatches
+-->
+
+<tr><th colspan='3'>Swatches</th>
+</tr><tr>
+<th> <span style='float:left;'>letter</span> <span style='float:right;'>color</span></th>
+<th>type</th>
+<th>main color(s)</th>
+</tr><tr>
+<td>a<span style='float:right;'>default</span></td> <td>basic</td> <td>#000, #333, #eee, #fff, #b3b3b3, #3e3e3e, #f9f9f9, #387bbe</td></tr><tr>
+<td>b<span style='float:right;'>dark</span></td> <td>basic</td> <td>#fff, #111, #eee, #bbb, #999, #1587f9 </td></tr><tr>
+<td>c<span style='float:right;'>yellow</span></td> <td rowspan=5>background-image: linear-gradient</td> <td>(#fadb4e, #fce88d), (#e9d995, #ECDFA9), (#facc1a, #fadb4e)</td></tr><tr>
+<td>d<span style='float:right;'>purple</span></td> <td>(#a719f0, #d490f7), ((#d490f7,#f6d9f7), (#a719f0, #ca75f6)</td></tr><tr>
+<td>e<span style='float:right;'>blue</span></td> <td>(#1587f9, #20adf8), (#387bbe, #1587f9), (#387bbe, #1587f9)</td></tr><tr>
+<td>f<span style='float:right;'>green</span></td> <td>(#4ba754, #68cd6c), (#28b82e, #68cd6c)</td></tr><tr>
+<td>g<span style='float:right;'>red</span></td> <td>(#a8090e, #f10e14), (#fd1212, #fd7070)</td></tr><tr>
+
+<!--
+ Jquery stuff
+-->
+
+<tr><th colspan='3'>Jquery</th></tr>
+<tr><td>jquery-2.1.1.min.js</td><td>storage/Blue/Explorer/jquery/</td><td>JQuery</td></tr><tr><td>jquery.mobile-1.4.5.css</td><td>storage/Blue/Explorer/jquery/</td><td>Jquery theme (default) uncompressed</td>
+</tr><tr><td>jquery.mobile-1.4.5.min.css</td><td>storage/Blue/Explorer/jquery/</td><td>Jquery theme</td></tr>
+<tr><td>jquery.mobile-1.4.5.min.js</td><td>storage/Blue/Explorer/jquery/</td><td>Jquery Mobile</td></tr>
+
+<!--
+ colorpicker removed
+-->
+
+<tr><th colspan='3'><span style='float: left;'>Colorpickers removed, i went with themes/swatches instead</span><s>Colorpicker Files</s></th></tr><tr><td>jquery.minicolors.min.js</td><td>storage/Blue/Explorer/colorpicker/</td><td>Jquery colorpicker</td></tr><tr><td>jquery.minicolors.css</td><td>storage/Blue/Explorer/colorpicker/</td></tr><tr>
+<td>jquery.minicolors.png</td><td>storage/Blue/Explorer/colorpicker/</td></tr>
+
+<!--
+icons
+-->
+
+<tr><th colspan='3'>Icons included<span style='float: right;'>storage/Blue/Explorer/icons/</span></th><tr><td>android.png</td><td>b.png</td><td>basic.png</td></tr><tr><td>bears-logo.png</td><td>black-menu.png</td><td>black-question.png</td></tr><tr><td>blue-menu.png</td><td>blue-menu1.png</td><td>blue-question.png</td></tr><tr><td>camera.jpg</td><td>camera.png</td><td>check-mark-black.png</td></tr><tr><td>check-mark-blue.png</td><td>check-mark-green.png</td><td>check-mark-purple.png</td></tr><tr><td>check-mark-red.png</td><td>check-mark-white.png</td><td>check-mark-yellow.png</td></tr><tr><td>chicago-river.jpg</td><td>cubs-logo.png</td><td>default.png</td></tr><tr><td>documents.png</td><td>download.png</td><td>downloads.png</td></tr><tr><td>empty-folder.png</td><td>files.jpg</td><td>frame.png</td></tr><tr><td>full-folder.png</td><td>grey-menu.png</td><td>gw.png</td></tr><tr><td>hard_disc1.png</td><td>home.png</td><td>loading.gif</td></tr><tr><td>logo.png</td><td>music.jpg</td><td>note.png</td></tr><tr><td>notifications.png</td><td>olibasic.png</td><td>pdf.png</td></tr><tr><td>podcasts.png</td><td>sdcard.jpg</td><td>settings.png</td></tr><tr><td>tower.jpeg</td><td>video.png</td><td>video_icon.png</td></tr><tr><td>white-menu.png</td><td>white-question.png</td><td>zip.png</td></tr>
+</table>
+</body>
+</html>
+
+
+
